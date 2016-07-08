@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Sam&#39;s Blog</title>
-  <meta name="description" content="Sam's Random collection notes about stuff he is working on.
-">
+  <title>Market Sell high</title>
+  <meta name="description" content="Can we do better than just holding onto the SP 500?">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://TheSamPrice.github.io/">
+  <link rel="canonical" href="http://TheSamPrice.github.io/stock_market/investing/2016/07/03/market_2.html">
   <link rel="alternate" type="application/rss+xml" title="Sam's Blog" href="http://TheSamPrice.github.io/feed.xml">
 </head>
 
@@ -55,33 +54,27 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Market Sell high</h1>
+    <p class="post-meta"><time datetime="2016-07-03T20:46:34-04:00" itemprop="datePublished">Jul 3, 2016</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jul 3, 2016</span>
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="/stock_market/investing/2016/07/02/market_1.html">Can we do better than just holding onto the SP 500?</a></p>
 
-        <h2>
-          <a class="post-link" href="/stock_market/investing/2016/07/03/market_2.html">Market Sell high</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 2, 2016</span>
+<p>Lets say we buy SP 500, and hold it for 20 days.</p>
 
-        <h2>
-          <a class="post-link" href="/stock_market/investing/2016/07/02/market_1.html">Market Overview</a>
-        </h2>
-      </li>
-    
-  </ul>
+<svg id="plot1"></svg>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>A about .5% increase in your portfolio can be expected from buying and holding the stock market for 1 year.  Given the sigma is about 6, this doesn’t seem very decent given that CD’s can be expected to return <a href="http://money.usnews.com/money/blogs/my-money/2015/01/30/10-cds-with-high-interest-rates">1 to 1.5% increase.</a></p>
 
-</div>
+<p>You would average a per day increase of about .002 % per trading day.</p>
+
+  </div>
+
+</article>
 
       </div>
     </div>
@@ -142,7 +135,63 @@
 </script>
 
 
+  
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  
 
+  
+  <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+  
+
+
+
+<script>
+
+d3.csv("/downloads/market1/hold_mid_high_1.csv", function(data) {
+
+  var margin = {top: 10, right: 30, bottom: 30, left: 30},
+      width = 500 - margin.left - margin.right,
+      height = 250 - margin.top - margin.bottom;
+  var x = d3.scaleLinear()
+      .rangeRound([0, width])
+      .domain(d3.extent(data, function(d) { return +d['# pos']; }));
+
+
+  var y = d3.scaleLinear()
+   .domain([0, d3.max(data, function(d) { return +d['count']; })])
+   .range([height, 0]);
+
+ // <!-- var bins= data[1];//console.log(data); -->
+  var svg= d3.select("#plot1")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var bar = svg.selectAll(".bar")
+   .data(data)
+   .enter()
+   .append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(+d['# pos']) })
+      .attr("y", function(d) { return y(+d['count']) })
+      .attr("width", 3)
+      .attr("height", function(d){ return  y(0) - y(+d['count'])  });
+/*
+  bar.append("text")
+      .attr("dy", ".75em")
+      .attr("y", 6)
+      .attr("x", (x(bins[0].x1) - x(bins[0].x0)) / 2)
+      .attr("text-anchor", "middle")
+      .text(function(d) { return formatCount(d.length); });
+*/
+  svg.append("g")
+   .attr("class", "axis axis--x")
+   .attr("transform", "translate(0," + height + ")")
+   .call(d3.axisBottom(x));
+});
+
+</script>
 
 
 
