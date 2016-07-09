@@ -6,8 +6,8 @@
 </description>
     <link>http://TheSamPrice.github.io/</link>
     <atom:link href="http://TheSamPrice.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jul 2016 22:07:24 -0400</pubDate>
-    <lastBuildDate>Fri, 08 Jul 2016 22:07:24 -0400</lastBuildDate>
+    <pubDate>Fri, 08 Jul 2016 22:12:52 -0400</pubDate>
+    <lastBuildDate>Fri, 08 Jul 2016 22:12:52 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -46,9 +46,13 @@ What if I put my money into the S&amp;amp;P 500 and then take it out after &lt;b
 &lt;div id=&quot;slider_days&quot; width=&quot;500px&quot;&gt;&lt;/div&gt;
 &lt;svg id=&quot;plot1&quot;&gt;&lt;/svg&gt;
 
-&lt;p&gt;A about .5% increase in your portfolio can be expected from buying and holding the stock market for 1 year.   Note CD’s can be expected to return &lt;a href=&quot;http://money.usnews.com/money/blogs/my-money/2015/01/30/10-cds-with-high-interest-rates&quot;&gt;1 to 1.5% increase.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data from 2000 to 2017 was used for this analysis.
+After 1 year between 0 and 30% increase in your holdings can be expected.
+A 1 month holding can expect to hold -2 to 5 % increase in your holdings.&lt;/p&gt;
 
-&lt;p&gt;You would average a per day increase of about .002 % per trading day.&lt;/p&gt;
+&lt;p&gt;An increase per day of .05 % increase per day if you have 30% increase in a year.&lt;/p&gt;
+
+&lt;p&gt;Note CD’s can be expected to return &lt;a href=&quot;http://money.usnews.com/money/blogs/my-money/2015/01/30/10-cds-with-high-interest-rates&quot;&gt;1 to 1.5% increase.&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 02 Jul 2016 20:46:34 -0400</pubDate>
         <link>http://TheSamPrice.github.io/stock_market/investing/2016/07/02/market_1.html</link>
