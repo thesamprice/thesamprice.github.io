@@ -75,7 +75,7 @@
 <div id="slider_days" width="500px"></div>
 <svg id="plot1"></svg>
 
-<p>The way I look at this graph is if I old onto the S&amp;P 500 for 1 month I am almost guaranteed a 2% increase if I set a sell price at 2% higher then what I buy it for.</p>
+<p>The way I look at this graph is if I old onto the S&amp;P 500 for 1 month I am 20% chance of a 2% increase if I set a sell price at 2% higher then what I buy it for.</p>
 
 <p>Data used was stock symbol VOO, from 2000 to July 2016.</p>
 
@@ -182,9 +182,13 @@ $(function() {
        {
            if(data[i][y_key] > 0)
            {
-               y_end = i
+
                if(y_start == -1)
                    y_start = i;
+           }
+           if(data[i][y_key] < 1.0)
+           {
+               y_end = i;
            }
        }
        var x = d3.scaleLinear()
@@ -224,6 +228,11 @@ $(function() {
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
+
+        svg.append("g")
+         .attr("class", "axis axis--y")
+         .attr("transform", "translate(0," + 0 + ")")
+         .call(d3.axisLeft(y));
 }; d3.csv("/downloads/market1/max_open_high.csv", function(data_x) {
   data = data_x;
   keys = Object.keys(data[0]);
