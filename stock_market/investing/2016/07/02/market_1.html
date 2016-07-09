@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://TheSamPrice.github.io/stock_market/investing/2016/07/02/market_1.html">
   <link rel="alternate" type="application/rss+xml" title="Sam's Blog" href="http://TheSamPrice.github.io/feed.xml">
+
+
+    
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    
+
+
 </head>
 
 
@@ -66,14 +73,14 @@
 
 <ul>
   <li>Question 1.
-What if I put my money into the S&amp;P 500 for a set amount of days and then take it out.</li>
+What if I put my money into the S&amp;P 500 and then take it out after <b id="numdays"></b>.</li>
 </ul>
 
 <p>A more in-depth look at this has been done on <a href="https://www.reddit.com/r/personalfinance/comments/4rcqbu/ive_simulated_and_plotted_the_entire_sp_since/">reddit</a>.</p>
-
+<div id="slider_days" width="500px"></div>
 <svg id="plot1"></svg>
 
-<p>A about .5% increase in your portfolio can be expected from buying and holding the stock market for 1 year.  Given the sigma is about 6, this doesn’t seem very decent given that CD’s can be expected to return <a href="http://money.usnews.com/money/blogs/my-money/2015/01/30/10-cds-with-high-interest-rates">1 to 1.5% increase.</a></p>
+<p>A about .5% increase in your portfolio can be expected from buying and holding the stock market for 1 year.   Note CD’s can be expected to return <a href="http://money.usnews.com/money/blogs/my-money/2015/01/30/10-cds-with-high-interest-rates">1 to 1.5% increase.</a></p>
 
 <p>You would average a per day increase of about .002 % per trading day.</p>
 
@@ -141,6 +148,14 @@ What if I put my money into the S&amp;P 500 for a set amount of days and then ta
 
 
   
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  
+
+  
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+
+  
   <script src="https://d3js.org/d3.v4.min.js"></script>
   
 
@@ -148,51 +163,78 @@ What if I put my money into the S&amp;P 500 for a set amount of days and then ta
   <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
   
 
+  
+  <script src="/downloads/js/plotter.js"></script>
+  
+
 
 
 <script>
-d3.csv("/downloads/market1/hold_mid_high_1.csv", function(data) {
+$(function() {
+ $( "#slider_days" ).slider();
+}); var data; var keys; function plotit(event, ui ){
+    var margin = {top: 10, right: 30, bottom: 30, left: 30},
+        width = 500 - margin.left - margin.right,
+        height = 250 - margin.top - margin.bottom;
+    var x_key = keys[0];
+    var y_key = keys[ui.value];
+    $('#numdays').text(y_key)
+       y_data = data[y_key]
+       y_start = -1
 
-  var margin = {top: 10, right: 30, bottom: 30, left: 30},
-      width = 500 - margin.left - margin.right,
-      height = 250 - margin.top - margin.bottom;
-  var x = d3.scaleLinear()
-      .rangeRound([0, width])
-      .domain(d3.extent(data, function(d) { return +d['# pos']; }));
+       for(var i=0;i<data.length;i+=1)
+       {
+           if(data[i][y_key] > 0)
+           {
+               y_end = i
+               if(y_start == -1)
+                   y_start = i;
+           }
+       }
+       var x = d3.scaleLinear()
+           .rangeRound([0, width])
+           .domain([+data[y_start][x_key],+data[y_end][x_key],]);
 
 
-  var y = d3.scaleLinear()
-   .domain([0, d3.max(data, function(d) { return +d['count']; })])
-   .range([height, 0]);
+       var y = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) { return +d[y_key]; })])
+        .range([height, 0]);
+        d3.select("#plot1").selectAll("*").remove();
+       var svg= d3.select("#plot1")
+       .attr("width", width + margin.left + margin.right)
+       .attr("height", height + margin.top + margin.bottom)
+       .append("g")
+       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
- // <!-- var bins= data[1];//console.log(data); -->
-  var svg= d3.select("#plot1")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+       var bar = svg.selectAll(".bar")
 
-  var bar = svg.selectAll(".bar")
-   .data(data)
-   .enter()
-   .append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(+d['# pos']) })
-      .attr("y", function(d) { return y(+d['count']) })
-      .attr("width", 3)
-      .attr("height", function(d){ return  y(0) - y(+d['count'])  });
-/*
-  bar.append("text")
-      .attr("dy", ".75em")
-      .attr("y", 6)
-      .attr("x", (x(bins[0].x1) - x(bins[0].x0)) / 2)
-      .attr("text-anchor", "middle")
-      .text(function(d) { return formatCount(d.length); });
-*/
-  svg.append("g")
-   .attr("class", "axis axis--x")
-   .attr("transform", "translate(0," + height + ")")
-   .call(d3.axisBottom(x));
+        .data(data)
+        .enter()
+        .append("rect")
+           .attr("class", "bar")
+           .attr("x", function(d) { return x(+d[x_key]) })
+           .attr("y", function(d) { return y(+d[y_key]) })
+           .attr("width", 3)
+           .attr("height", function(d){ return  y(0) - y(+d[y_key])  });
+     /*
+       bar.append("text")
+           .attr("dy", ".75em")
+           .attr("y", 6)
+           .attr("x", (x(bins[0].x1) - x(bins[0].x0)) / 2)
+           .attr("text-anchor", "middle")
+           .text(function(d) { return formatCount(d.length); });
+     */
+       svg.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+}; d3.csv("/downloads/market1/hold_mid_high.csv", function(data_x) {
+  data = data_x;
+  keys = Object.keys(data[0]);
+
+  $( "#slider_days" ).slider({min:1,max:keys.length-1,slide:plotit});
+
+  plotit(0,{value:1})
 });
 
 </script>
