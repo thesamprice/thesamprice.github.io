@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sam&#39;s Blog</title>
-    <description>Sam&#39;s Random collection notes about stuff he is working on.
+    <title>Sam's Blog</title>
+    <description>Sam's Random collection notes about stuff he is working on.
 </description>
     <link>http://TheSamPrice.github.io/</link>
     <atom:link href="http://TheSamPrice.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jul 2016 23:10:26 -0400</pubDate>
-    <lastBuildDate>Fri, 08 Jul 2016 23:10:26 -0400</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Sat, 20 Apr 2019 23:38:33 -0400</pubDate>
+    <lastBuildDate>Sat, 20 Apr 2019 23:38:33 -0400</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
     
       <item>
         <title>Market Sell high</title>
