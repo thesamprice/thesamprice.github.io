@@ -6,33 +6,63 @@
 </description>
     <link>http://TheSamPrice.github.io/</link>
     <atom:link href="http://TheSamPrice.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 20 Apr 2019 23:41:15 -0400</pubDate>
-    <lastBuildDate>Sat, 20 Apr 2019 23:41:15 -0400</lastBuildDate>
+    <pubDate>Sun, 21 Apr 2019 00:30:45 -0400</pubDate>
+    <lastBuildDate>Sun, 21 Apr 2019 00:30:45 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>Market Sell high</title>
-        <description>&lt;p&gt;&lt;a href=&quot;/stock_market/investing/2016/07/02/market_1.html&quot;&gt;Can we do better than just holding onto the SP 500?&lt;/a&gt;&lt;/p&gt;
+        <title>Laser Calibrator 1</title>
+        <description>&lt;p&gt;When calibrating your CNC / Laser you might want to generate a test pattern to step through different Speed / Power / Z offset settings.&lt;/p&gt;
 
-&lt;p&gt;Lets say we buy S&amp;amp;P 500 at market open price, and hold it for &lt;b id=&quot;holddays&quot;&gt;&lt;/b&gt;.  What is the maximum return that we could have sold the S&amp;amp;P 500 for during this time. More to the point if we set a sell price would have it sold?&lt;/p&gt;
-&lt;div id=&quot;slider_days&quot; width=&quot;500px&quot;&gt;&lt;/div&gt;
-&lt;svg id=&quot;plot1&quot;&gt;&lt;/svg&gt;
+&lt;form&gt;
 
-&lt;p&gt;The way I look at this graph is if I old onto the S&amp;amp;P 500 for 1 month I am 80% chance of a 2% increase if I set a sell price at 2% higher then what I buy it for at market open.&lt;/p&gt;
+&lt;div&gt;
+&lt;label&gt;Num Steps &lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;nSteps&quot; value=&quot;20&quot; /&gt;
+&lt;/div&gt;
 
-&lt;p&gt;If you could buy and sell 12 times in a year at 2% increase you would get a 24% profit over the year.
-However you would not be able to get capital gains tax.&lt;/p&gt;
+&lt;div&gt;
+&lt;label&gt;Z Start &lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;zStart&quot; value=&quot;0&quot; /&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;Speed Start&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;sStart&quot; value=&quot;700&quot; /&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;Power Start&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;pStart&quot; value=&quot;80&quot; /&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Data used was stock symbol VOO, from 2000 to July 2016.&lt;/p&gt;
+&lt;div&gt;
+&lt;label&gt;Z Step &lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;zStep&quot; value=&quot;0&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;label&gt;Y Step &lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;yStep&quot; value=&quot;1&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;label&gt;Speed Step&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;sStep&quot; value=&quot;50&quot; /&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;Power Step&lt;/label&gt;&lt;input type=&quot;number&quot; id=&quot;pStep&quot; value=&quot;0&quot; /&gt;
+&lt;/div&gt;
+
+&lt;/form&gt;
+&lt;p&gt;&lt;button id=&quot;genIt&quot; onclick=&quot;GenerateGCode()&quot;&gt; Generate G-Code &lt;/button&gt;&lt;/p&gt;
+
+&lt;textarea readonly=&quot;&quot; id=&quot;GCodeArea&quot; style=&quot;width:100%;height:500px&quot;&gt; 
+Click the button!
+
+&lt;/textarea&gt;
 </description>
-        <pubDate>Sun, 03 Jul 2016 20:46:34 -0400</pubDate>
-        <link>http://TheSamPrice.github.io/stock_market/investing/2016/07/03/laser.html</link>
-        <guid isPermaLink="true">http://TheSamPrice.github.io/stock_market/investing/2016/07/03/laser.html</guid>
+        <pubDate>Sat, 20 Apr 2019 20:46:34 -0400</pubDate>
+        <link>http://TheSamPrice.github.io/cnc/laser/cutter/2019/04/20/laser.html</link>
+        <guid isPermaLink="true">http://TheSamPrice.github.io/cnc/laser/cutter/2019/04/20/laser.html</guid>
         
         
-        <category>stock_market</category>
+        <category>CNC</category>
         
-        <category>investing</category>
+        <category>Laser</category>
+        
+        <category>cutter</category>
         
       </item>
     
