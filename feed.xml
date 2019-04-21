@@ -6,9 +6,35 @@
 </description>
     <link>http://TheSamPrice.github.io/</link>
     <atom:link href="http://TheSamPrice.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 20 Apr 2019 23:38:33 -0400</pubDate>
-    <lastBuildDate>Sat, 20 Apr 2019 23:38:33 -0400</lastBuildDate>
+    <pubDate>Sat, 20 Apr 2019 23:41:15 -0400</pubDate>
+    <lastBuildDate>Sat, 20 Apr 2019 23:41:15 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Market Sell high</title>
+        <description>&lt;p&gt;&lt;a href=&quot;/stock_market/investing/2016/07/02/market_1.html&quot;&gt;Can we do better than just holding onto the SP 500?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets say we buy S&amp;amp;P 500 at market open price, and hold it for &lt;b id=&quot;holddays&quot;&gt;&lt;/b&gt;.  What is the maximum return that we could have sold the S&amp;amp;P 500 for during this time. More to the point if we set a sell price would have it sold?&lt;/p&gt;
+&lt;div id=&quot;slider_days&quot; width=&quot;500px&quot;&gt;&lt;/div&gt;
+&lt;svg id=&quot;plot1&quot;&gt;&lt;/svg&gt;
+
+&lt;p&gt;The way I look at this graph is if I old onto the S&amp;amp;P 500 for 1 month I am 80% chance of a 2% increase if I set a sell price at 2% higher then what I buy it for at market open.&lt;/p&gt;
+
+&lt;p&gt;If you could buy and sell 12 times in a year at 2% increase you would get a 24% profit over the year.
+However you would not be able to get capital gains tax.&lt;/p&gt;
+
+&lt;p&gt;Data used was stock symbol VOO, from 2000 to July 2016.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 Jul 2016 20:46:34 -0400</pubDate>
+        <link>http://TheSamPrice.github.io/stock_market/investing/2016/07/03/laser.html</link>
+        <guid isPermaLink="true">http://TheSamPrice.github.io/stock_market/investing/2016/07/03/laser.html</guid>
+        
+        
+        <category>stock_market</category>
+        
+        <category>investing</category>
+        
+      </item>
     
       <item>
         <title>Market Sell high</title>
